@@ -20,6 +20,12 @@ from bottle import run
 @route('/')
 @route('/tasks')
 def tasks():
+
+    username = request.get_cookie('username', 'guest')
+
+    print("username = ", username)
+
+    response.set_cookie('username', 'greg')
     return template("tasks.tpl") 
 
 @route('/login')
